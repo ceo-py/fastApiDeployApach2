@@ -67,6 +67,9 @@ Create a virtual host configuration file for HTTPS (port 443) to serve the FastA
     ProxyPreserveHost On
     ProxyPass / http://127.0.0.1:8000/
     ProxyPassReverse / http://127.0.0.1:8000/
+    
+    # Headers for reverse proxy
+    RequestHeader set X-Forwarded-Proto "https"
 
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
